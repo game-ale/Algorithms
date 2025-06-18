@@ -72,3 +72,18 @@ def search_rotated_array(nums, target):
             else:
                 right = mid - 1
     return -1
+# python built in 
+
+import bisect
+
+arr = [1, 3, 4, 4, 4, 6, 8]
+
+# Leftmost index where target can be inserted
+bisect.bisect_left(arr, 4)   # → 2
+
+# Rightmost index where target can be inserted
+bisect.bisect_right(arr, 4)  # → 5
+
+# Insert while maintaining sorted order
+bisect.insort_left(arr, 5)   # → arr becomes [1, 3, 4, 4, 4, 5, 6, 8]
+
