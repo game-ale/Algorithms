@@ -64,7 +64,7 @@ sub = mask
 while sub:
     print(bin(sub))
     sub = (sub - 1) & mask
-
+```
 ***🧮 Digit DP – Summary & Purpose***
 
 **Digit DP** is a dynamic programming technique used to **count or build numbers based on their digits**, especially when working with **very large numbers** (e.g., up to `10^18`).
