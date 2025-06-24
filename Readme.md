@@ -64,3 +64,60 @@ sub = mask
 while sub:
     print(bin(sub))
     sub = (sub - 1) & mask
+
+# 🧮 Digit DP – Summary & Purpose
+
+**Digit DP** is a dynamic programming technique used to **count or build numbers based on their digits**, especially when working with **very large numbers** (e.g., up to `10^18`).
+
+---
+
+## 🎯 Purpose
+
+To **efficiently solve digit-related problems** in a range `[L, R]` **without checking every number one by one**.
+
+✅ Perfect for problems where:
+- You need to count how many numbers satisfy a digit-based condition.
+- Brute force is too slow due to large input size.
+
+---
+
+## 🧠 Core Idea (Easy to Memorize)
+
+> ⚙️ Build the number **digit by digit** (from left to right)  
+> 🧩 At each step, track essential states and make decisions.
+
+### 👇 While building the number, keep track of:
+- 🔒 `tight`: Are we still bound to the upper limit digit?
+- 0️⃣ `leading_zero`: Are we still dealing with leading zeros?
+- 📦 `state`: A value or set storing info like:
+  - Digits used so far
+  - Sum of digits
+  - Remainder/mod value
+  - Anything your problem needs
+
+### 💾 Use Memoization:
+- Store results of solved subproblems to **avoid recomputation**.
+- Usually implemented as a multidimensional `dp` array.
+
+---
+
+## ✨ Template Summary
+
+```python
+def digit_dp(pos, tight, leading_zero, state):
+    if pos == len(digits):
+        return 1 if is_valid(state) else 0
+
+    if memo[pos][tight][leading_zero][state] is not None:
+        return memo value
+
+    limit = digits[pos] if tight else 9
+    total = 0
+    for d in range(0, limit + 1):
+        new_tight = tight and (d == limit)
+        new_state = update_state(state, d)
+        total += digit_dp(pos + 1, new_tight, updated_leading_zero, new_state)
+
+    memo[...] = total
+    return total
+
