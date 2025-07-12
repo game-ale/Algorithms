@@ -59,7 +59,7 @@ def rebuild_from_diff(diff):
 ```
 
 ***📊 Common Applications***
-|------------------------------------------|----------------------------|
+
 |Problem Type	                           | Solution Technique         |
 |------------------------------------------|----------------------------|
 |Range sum query (static array)	           | Prefix sum                 |
@@ -68,7 +68,7 @@ def rebuild_from_diff(diff):
 |2D range sum (static)	                   | 2D Prefix sum              |
 |Find subarrays with a given sum	       | Prefix sum + Hash Map      |
 |Counting problems (prefix sum of counts)  | Prefix sum                 |
-|------------------------------------------|----------------------------|
+
 
 ***🔍 Variants***
 **1. Prefix XOR**
