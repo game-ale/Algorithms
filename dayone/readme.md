@@ -46,3 +46,39 @@ print("LCM of 12 and 15:", lcm(12, 15))
 print("Primes up to 50:", sieve(50))
 
 ```
+
+**Template for Modular Inverse mod Prime:**
+```
+def mod_pow(a, b, mod):
+    result = 1
+    a %= mod
+    while b:
+        if b % 2:
+            result = (result * a) % mod
+        a = (a * a) % mod
+        b //= 2
+    return result
+def mod_inverse(a, p):
+    return mod_pow(a, p - 2, p)
+```
+**Extended Euclid Algorithm Template:**
+```
+def extended_gcd(a, b):
+    if b == 0:
+        return a, 1, 0
+    gcd, x1, y1 = extended_gcd(b, a % b)
+    x = y1
+    y = x1 - (a // b) * y1
+    return gcd, x, y
+    
+```
+**➤ Modular Inverse (for non-prime mod):**
+
+```
+def mod_inverse(a, mod):
+    gcd, x, y = extended_gcd(a, mod)
+    if gcd != 1:
+        raise Exception("Inverse doesn't exist")
+    return x % mod
+
+```
